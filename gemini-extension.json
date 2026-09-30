@@ -1,0 +1,11 @@
+{
+  "name": "hproxy",
+  "version": "1.0.0",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "hproxy": {
+      "description": "Free proxy list, live proxy checker and IP lookup from HProxy's hosted MCP server. No key.",
+      "httpUrl": "https://mcp.hproxy.com/mcp"
+    }
+  }
+}

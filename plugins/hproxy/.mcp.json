@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "hproxy": {
+      "type": "http",
+      "url": "https://mcp.hproxy.com/mcp"
+    }
+  }
+}

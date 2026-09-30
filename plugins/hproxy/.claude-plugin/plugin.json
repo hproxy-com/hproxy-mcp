@@ -1,0 +1,22 @@
+{
+  "name": "hproxy",
+  "displayName": "HProxy",
+  "version": "1.0.0",
+  "description": "Free proxy list, live proxy checker and IP lookup from HProxy's hosted MCP server. No key. Includes a skill that tells Claude how to use the tools well.",
+  "author": {
+    "name": "HProxy",
+    "url": "https://hproxy.com"
+  },
+  "homepage": "https://hproxy.com/tools/ai",
+  "repository": "https://github.com/hproxy-com/hproxy-mcp",
+  "license": "MIT",
+  "keywords": [
+    "proxy",
+    "free-proxy",
+    "proxy-list",
+    "proxy-checker",
+    "ip-lookup",
+    "socks5",
+    "mcp"
+  ]
+}

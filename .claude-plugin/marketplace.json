@@ -1,0 +1,14 @@
+{
+  "name": "hproxy",
+  "description": "HProxy's free proxy tools for Claude Code: a live free proxy list, a proxy checker and an IP lookup.",
+  "owner": {
+    "name": "HProxy"
+  },
+  "plugins": [
+    {
+      "name": "hproxy",
+      "source": "./plugins/hproxy",
+      "description": "Free proxy list, live proxy checker and IP lookup from HProxy's hosted MCP server. No key."
+    }
+  ]
+}

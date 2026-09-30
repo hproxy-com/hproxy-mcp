@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.hproxy/mcp",
+  "title": "HProxy",
+  "description": "Free proxy list, live proxy checker and IP lookup for AI agents. No key, nothing to install.",
+  "version": "1.0.0",
+  "websiteUrl": "https://hproxy.com/tools/ai",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.hproxy.com/mcp"
+    }
+  ]
+}
