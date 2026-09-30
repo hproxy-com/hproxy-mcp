@@ -16,11 +16,11 @@ It speaks MCP over Streamable HTTP and is listed in the [official MCP Registry](
 claude mcp add --transport http hproxy https://mcp.hproxy.com/mcp
 ```
 
-Or as a plugin, which also adds a skill that tells Claude how to use the tools well:
+Or as a plugin: the server plus a skill that tells Claude how to use it well. In a terminal:
 
-```
-/plugin marketplace add hproxy-com/hproxy-mcp
-/plugin install hproxy@hproxy
+```bash
+claude plugin marketplace add hproxy-com/hproxy-mcp
+claude plugin install hproxy@hproxy
 ```
 
 **Claude and Claude Desktop.** Settings, Connectors, Add custom connector, then paste the address:
@@ -53,7 +53,7 @@ https://mcp.hproxy.com/mcp
 { "mcpServers": { "hproxy": { "serverUrl": "https://mcp.hproxy.com/mcp" } } }
 ```
 
-**Gemini CLI.** As an extension, which also gives the model a short guide to the tools:
+**Gemini CLI.** As an extension: the server plus a short guide for the model. In a terminal:
 
 ```bash
 gemini extensions install https://github.com/hproxy-com/hproxy-mcp
