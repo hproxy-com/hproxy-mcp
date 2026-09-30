@@ -3,8 +3,12 @@
   "name": "com.hproxy/mcp",
   "title": "HProxy",
   "description": "Free proxy list, live proxy checker and IP lookup for AI agents. No key, nothing to install.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "websiteUrl": "https://hproxy.com/tools/ai",
+  "repository": {
+    "url": "https://github.com/hproxy-com/hproxy-mcp",
+    "source": "github"
+  },
   "remotes": [
     {
       "type": "streamable-http",
