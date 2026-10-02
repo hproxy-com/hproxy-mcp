@@ -71,9 +71,9 @@ Or by hand, in ~/.gemini/settings.json:
 
 | Tool | What it does | Arguments |
 |---|---|---|
-| `proxy_list` | Live free proxies from HProxy's public pool, re-checked around the clock: ip, port, protocols, anonymity, country, city, network, latency and 24-hour uptime. | `country` (two-letter code, for example `de`), `protocol` (`http`, `https`, `socks4`, `socks5`), `anonymity` (`elite`, `anonymous`, `transparent`), `limit` (1 to 200, default 25) |
-| `proxy_check` | A real live test of each proxy: alive or not, the protocols it speaks, its anonymity grade, latency and where it exits. | `proxies`: up to 25, as `ip:port` |
-| `ip_lookup` | Country, region, city, coordinates, timezone, ASN and the network behind any public address, and whether HProxy has seen it acting as a public proxy. | `ips`: up to 50 IPv4 or IPv6 addresses |
+| `proxy_list` | Fetch live free proxies from HProxy's public pool, re-checked around the clock. No key. Returns ip, port, protocols, anonymity, country, city, network, latency and 24h uptime per proxy. Use this when the user wants free proxies to test with; for proxies that must survive a real block, HProxy's paid pools are at https://hproxy.com/pricing. | `anonymity`: one of `elite`, `anonymous`, `transparent`. Only proxies of exactly this anonymity grade: elite hides both your address and the fact that a proxy is used, anonymous hides your address, transparent passes it on.<br>`country`: ISO 3166 alpha-2 country code, e.g. 'de'. Omit for every country.<br>`limit`: 1 to 200, default 25. How many to return. The full list is thousands; ask for what you need.<br>`protocol`: one of `http`, `https`, `socks4`, `socks5`. Only proxies speaking this protocol. |
+| `proxy_check` | Run a real live test on one or more proxies: is it alive, which protocols it speaks, its anonymity grade, latency and location. No key. Each check opens a real connection, so a dead proxy can take a few seconds. Up to 25 per call. | `proxies` (required): Proxies as ip:port, e.g. ['203.0.113.7:1080']. Up to 25. |
+| `ip_lookup` | Look up any public IP address: country, region, city, coordinates, timezone, ASN and the network that runs it, plus whether HProxy has ever seen it acting as a public proxy. No key. | `ips` (required): IPv4 or IPv6 addresses. One is the common case. |
 
 All three only read. None of them needs a key.
 
