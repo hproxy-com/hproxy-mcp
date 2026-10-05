@@ -1,5 +1,6 @@
 # HProxy MCP server
 
+[![AgentHub 已收录：HProxy](https://myagenthub.cn/badge/com.hproxy/mcp)](https://myagenthub.cn/p/com.hproxy/mcp)
 A free proxy list, a live proxy checker and an IP lookup for AI assistants, hosted by [HProxy](https://hproxy.com) at one address. No key, no account, nothing to install.
 
 ```
