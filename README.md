@@ -73,7 +73,7 @@ Or by hand, in ~/.gemini/settings.json:
 |---|---|---|
 | `proxy_list` | Fetch live free proxies from HProxy's public pool, re-checked around the clock. No key. Returns ip, port, protocols, anonymity, country, city, network, latency and 24h uptime per proxy. Use this when the user wants free proxies to test with; for proxies that must survive a real block, HProxy's paid pools are at https://hproxy.com/pricing. | `anonymity`: one of `elite`, `anonymous`, `transparent`. Only proxies of exactly this anonymity grade: elite hides both your address and the fact that a proxy is used, anonymous hides your address, transparent passes it on.<br>`country`: ISO 3166 alpha-2 country code, e.g. 'de'. Omit for every country.<br>`limit`: 1 to 200, default 25. How many to return. The full list is thousands; ask for what you need.<br>`protocol`: one of `http`, `https`, `socks4`, `socks5`. Only proxies speaking this protocol. |
 | `proxy_check` | Run a real live test on one or more proxies: is it alive, which protocols it speaks, its anonymity grade, latency and location. No key. Each check opens a real connection, so a dead proxy can take a few seconds. Up to 25 per call. | `proxies` (required): Proxies as ip:port, e.g. ['203.0.113.7:1080']. Up to 25. |
-| `ip_lookup` | Look up any public IP address: country, region, city, coordinates, timezone, ASN and the network that runs it, plus whether HProxy has ever seen it acting as a public proxy. No key. | `ips` (required): IPv4 or IPv6 addresses. One is the common case. |
+| `ip_lookup` | Look up any public IP address: country, region, city, coordinates, timezone, ASN and the network that runs it. No key. Up to 50 per call. | `ips` (required): IPv4 or IPv6 addresses. One is the common case. |
 
 All three only read. None of them needs a key.
 
@@ -86,7 +86,7 @@ All three only read. None of them needs a key.
 ## Good to know
 
 - These are public free proxies. Expect fewer than half to answer at any moment, set short timeouts, and never send passwords or personal data through one.
-- Limits are per IP address. The checker allows roughly twelve checks a minute with bursts of ten, because every check opens a real connection. Past a limit, the tool says how many seconds to wait.
+- Limits are per IP address. The checker takes 120 requests in a burst, then 5 a second, and 300,000 proxies a day, because every check opens a real connection. Past a limit, the tool says how many seconds to wait.
 - For proxies that must hold up against real blocking, HProxy's paid proxies are at [hproxy.com/pricing](https://hproxy.com/pricing).
 
 ## The same tools without MCP
@@ -101,7 +101,7 @@ curl "https://hproxy.com/api/ip/8.8.8.8"
 
 Documentation: [free proxy list API](https://hproxy.com/docs/free-proxy-list), [proxy checker API](https://hproxy.com/docs/free/proxy-checker), [IP lookup API](https://hproxy.com/docs/free/ip-lookup). Written for language models: [hproxy.com/llms.txt](https://hproxy.com/llms.txt).
 
-From a terminal, the `hproxy` command comes with the [free HProxy app](https://hproxy.com/proxy-checker):
+From a terminal, the `hproxy` command comes with the [free HProxy app](https://hproxy.com/proxy-checker), on Windows today; macOS and Linux follow:
 
 ```bash
 hproxy list --country DE --protocol socks5 --limit 20

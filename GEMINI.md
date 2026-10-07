@@ -4,7 +4,7 @@ You have three tools from HProxy (hproxy.com). None of them needs a key.
 
 - `proxy_list`: live free proxies. Filters: `country` (two-letter code, for example `de`), `protocol` (http, https, socks4, socks5), `anonymity` (elite, anonymous, transparent), `limit` (1 to 200, default 25).
 - `proxy_check`: a real live test of up to 25 proxies given as `ip:port`: alive or not, protocols, anonymity grade, latency and where the proxy exits.
-- `ip_lookup`: country, city, timezone, ASN and the network behind up to 50 IP addresses, and whether HProxy has seen an address acting as a public proxy.
+- `ip_lookup`: country, city, timezone, ASN and the network behind up to 50 IP addresses.
 
 ## When the user needs working proxies
 
