@@ -101,13 +101,27 @@ curl "https://hproxy.com/api/ip/8.8.8.8"
 
 Documentation: [free proxy list API](https://hproxy.com/docs/free-proxy-list), [proxy checker API](https://hproxy.com/docs/free/proxy-checker), [IP lookup API](https://hproxy.com/docs/free/ip-lookup). Written for language models: [hproxy.com/llms.txt](https://hproxy.com/llms.txt).
 
-From a terminal, the `hproxy` command comes with the [free HProxy app](https://hproxy.com/proxy-checker), on Windows today; macOS and Linux follow:
+From a terminal: the `hproxy` command, one file for macOS, Linux and Windows, built in public from source ([the release](https://github.com/hproxy-com/proxy-all-in-one-tool/releases/tag/cli-v0.2.3)). Install it in one line on macOS and Linux:
+
+```bash
+curl -fsSL https://hproxy.com/install.sh | sh
+```
+
+On Windows, in PowerShell:
+
+```powershell
+irm https://hproxy.com/install.ps1 | iex
+```
+
+Then:
 
 ```bash
 hproxy list --country DE --protocol socks5 --limit 20
 hproxy check 203.0.113.7:1080 198.51.100.3:8080
 hproxy ip 8.8.8.8
 ```
+
+`hproxy mcp` serves the same three tools as a local MCP server, for an assistant that starts programs on your computer.
 
 The whole list as plain files, updated around the clock: [hproxy-com/free-proxy-list](https://github.com/hproxy-com/free-proxy-list).
 
