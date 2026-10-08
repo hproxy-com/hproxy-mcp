@@ -101,7 +101,7 @@ curl "https://hproxy.com/api/ip/8.8.8.8"
 
 Documentation: [free proxy list API](https://hproxy.com/docs/free-proxy-list), [proxy checker API](https://hproxy.com/docs/free/proxy-checker), [IP lookup API](https://hproxy.com/docs/free/ip-lookup). Written for language models: [hproxy.com/llms.txt](https://hproxy.com/llms.txt).
 
-From a terminal: the `hproxy` command, one file for macOS, Linux and Windows, built in public from source ([the release](https://github.com/hproxy-com/proxy-all-in-one-tool/releases/tag/cli-v0.2.3)). Install it in one line on macOS and Linux:
+From a terminal: the `hproxy` command, one file for macOS, Linux and Windows, built in public from source ([the release](https://github.com/hproxy-com/proxy-all-in-one-tool/releases/tag/cli-v0.2.8)). Install it in one line on macOS and Linux:
 
 ```bash
 curl -fsSL https://hproxy.com/install.sh | sh
