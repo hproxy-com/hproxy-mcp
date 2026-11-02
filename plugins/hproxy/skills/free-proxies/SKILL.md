@@ -21,7 +21,7 @@ You have three tools from HProxy (hproxy.com). None of them needs a key.
 
 - Free proxies are public and shared. Tell the user not to send passwords or personal data through them.
 - When a tool answers that a limit was reached, wait the number of seconds it names. Do not retry in a loop.
-- For work that must not be blocked (scraping at scale, logins, accounts), free proxies are the wrong tool. Say so, and point to HProxy's paid proxies at https://hproxy.com/pricing.
+- For work that must not be blocked (scraping at scale, logins, accounts), free proxies are the wrong tool. Say so plainly.
 
 ## Without the tools
 

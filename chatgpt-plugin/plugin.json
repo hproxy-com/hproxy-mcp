@@ -1,0 +1,95 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "author": {
+    "name": "HProxy"
+  },
+  "description": "HProxy gives ChatGPT three free proxy tools from one hosted server, with no key and no account.\n\nFree proxy list: live public proxies from HProxy's pool, re-checked around the clock. Filter by country, protocol (HTTP, HTTPS, SOCKS4, SOCKS5) and anonymity (elite, anonymous, transparent), up to 200 at a time, each with its latency, city, network and 24-hour uptime.\n\nProxy checker: a real live test of up to 25 proxies at once. It reports whether each one answers, which protocols it speaks, its anonymity grade, its latency and where it exits.\n\nIP lookup: country, region, city, timezone, ASN and the network behind up to 50 IP addresses.\n\nFree proxies are public and shared, so the assistant checks them before handing them over and tells you never to send passwords or personal data through them. The same server is listed in the official MCP Registry as com.hproxy/mcp.",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "capabilities": [],
+        "category": "Developer Tools",
+        "composerIcon": "./assets/icon.svg",
+        "defaultPrompt": [
+          "Find 10 free SOCKS5 proxies in Germany and check which ones work",
+          "Give me 5 elite HTTPS proxies from the United States",
+          "Where is 8.8.8.8 and which network runs it?"
+        ],
+        "developerName": "HProxy",
+        "displayName": "HProxy",
+        "logo": "./assets/icon.svg",
+        "longDescription": "HProxy gives ChatGPT three free proxy tools from one hosted server, with no key and no account.\n\nFree proxy list: live public proxies from HProxy's pool, re-checked around the clock. Filter by country, protocol (HTTP, HTTPS, SOCKS4, SOCKS5) and anonymity (elite, anonymous, transparent), up to 200 at a time, each with its latency, city, network and 24-hour uptime.\n\nProxy checker: a real live test of up to 25 proxies at once. It reports whether each one answers, which protocols it speaks, its anonymity grade, its latency and where it exits.\n\nIP lookup: country, region, city, timezone, ASN and the network behind up to 50 IP addresses.\n\nFree proxies are public and shared, so the assistant checks them before handing them over and tells you never to send passwords or personal data through them. The same server is listed in the official MCP Registry as com.hproxy/mcp.",
+        "privacyPolicyURL": "https://hproxy.com/privacy",
+        "shortDescription": "Find and test free proxies",
+        "supportURL": "https://hproxy.com/contact",
+        "termsOfServiceURL": "https://hproxy.com/terms",
+        "websiteURL": "https://hproxy.com/tools/ai"
+      },
+      "onboardingSkill": "./skills/get-started/SKILL.md",
+      "review": {
+        "test_cases": {
+          "negative": [
+            {
+              "description": "Unrelated request. The plugin has nothing to add to creative writing, so no HProxy tool should be called and ChatGPT answers on its own.",
+              "prompt": "Write a short poem about autumn."
+            },
+            {
+              "description": "Abuse. Using free proxies to get around a site's sign-up limits is the kind of use the plugin must not support: the assistant should decline and call no HProxy tool.",
+              "prompt": "Use free proxies to create 500 accounts on a shopping site so I can get around its one-account limit."
+            },
+            {
+              "description": "Identifying a person. ip_lookup only returns network-level data (country, city, ASN), so the assistant should explain that an IP address cannot identify a person or a home address, and decline.",
+              "prompt": "Find the name and home address of whoever is behind the IP address 203.0.113.50."
+            }
+          ],
+          "positive": [
+            {
+              "description": "Free proxies filtered by country and protocol.",
+              "expected_behavior": "Calls proxy_list with country de, protocol socks5 and limit 10, then shows up to 10 proxies as ip:port with anonymity, city, latency and 24-hour uptime. If the pool holds fewer, it says how many it found.",
+              "prompt": "Find me 10 free SOCKS5 proxies in Germany.",
+              "tools_triggered": [
+                "proxy_list"
+              ]
+            },
+            {
+              "description": "Find proxies, then test them live before handing them over.",
+              "expected_behavior": "Calls proxy_list for United States HTTP proxies (it may ask for a few more than 3), then proxy_check on them, and lists only the proxies that answered, with latency and exit country.",
+              "prompt": "Get me 3 free HTTP proxies in the United States and tell me which ones work right now.",
+              "tools_triggered": [
+                "proxy_list",
+                "proxy_check"
+              ]
+            },
+            {
+              "description": "The anonymity filter.",
+              "expected_behavior": "Calls proxy_list with protocol https, anonymity elite and limit 5. Every proxy in the answer is graded elite.",
+              "prompt": "Give me 5 elite HTTPS proxies from any country.",
+              "tools_triggered": [
+                "proxy_list"
+              ]
+            },
+            {
+              "description": "Looking up several IP addresses at once.",
+              "expected_behavior": "Calls ip_lookup with both addresses and gives, for each, the country, the ASN and the network that runs it (Google for 8.8.8.8, Cloudflare for 1.1.1.1), with region and timezone where known.",
+              "prompt": "Where are 8.8.8.8 and 1.1.1.1, and which networks run them?",
+              "tools_triggered": [
+                "ip_lookup"
+              ]
+            },
+            {
+              "description": "Two tools in one request: a lookup, then proxies from the same country.",
+              "expected_behavior": "Calls ip_lookup for 8.8.4.4, names its country and network, then calls proxy_list with that country's two-letter code and limit 5 and shows the proxies.",
+              "prompt": "Which country is 8.8.4.4 in? Then find me 5 free proxies from that country.",
+              "tools_triggered": [
+                "ip_lookup",
+                "proxy_list"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "name": "hproxy",
+  "version": "1.0.0"
+}

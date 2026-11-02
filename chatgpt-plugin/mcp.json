@@ -1,0 +1,9 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "hproxy": {
+      "type": "streamable-http",
+      "url": "https://mcp.hproxy.com/mcp"
+    }
+  }
+}
