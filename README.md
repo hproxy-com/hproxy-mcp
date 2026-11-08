@@ -87,7 +87,7 @@ All three only read. None of them needs a key.
 
 - These are public free proxies. Expect fewer than half to answer at any moment, set short timeouts, and never send passwords or personal data through one.
 - Limits are per IP address. The checker takes 120 requests in a burst, then 5 a second, and 300,000 proxies a day, because every check opens a real connection. Past a limit, the tool says how many seconds to wait.
-- For proxies that must hold up against real blocking, HProxy's paid proxies are at [hproxy.com/pricing](https://hproxy.com/pricing).
+- For proxies that must hold up against real blocking, HProxy sells [residential proxies](https://hproxy.com/residential-proxies?utm_source=github&utm_medium=readme&utm_campaign=hproxy-mcp).
 
 ## The same tools without MCP
 
