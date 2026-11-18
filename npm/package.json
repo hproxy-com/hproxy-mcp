@@ -1,0 +1,57 @@
+{
+  "author": {
+    "email": "support@hproxy.com",
+    "name": "HProxy",
+    "url": "https://hproxy.com"
+  },
+  "bin": {
+    "hproxy-mcp": "index.mjs"
+  },
+  "bugs": {
+    "url": "https://hproxy.com/contact"
+  },
+  "description": "HProxy's MCP server for AI assistants, and a small command line: a live free proxy list, a real proxy checker and an IP lookup. No key, no account, zero dependencies.",
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "index.mjs",
+    "README.md",
+    "LICENSE"
+  ],
+  "homepage": "https://hproxy.com/tools/ai",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "ai-agents",
+    "claude",
+    "cursor",
+    "proxy",
+    "free-proxy",
+    "proxy-list",
+    "proxy-checker",
+    "socks5",
+    "ip-lookup",
+    "cli",
+    "hproxy"
+  ],
+  "license": "MIT",
+  "main": "index.mjs",
+  "mcpName": "com.hproxy/mcp",
+  "name": "hproxy-mcp",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "directory": "npm",
+    "type": "git",
+    "url": "git+https://github.com/hproxy-com/hproxy-mcp.git"
+  },
+  "scripts": {
+    "prepublishOnly": "node test.mjs",
+    "test": "node test.mjs"
+  },
+  "type": "module",
+  "version": "1.0.0"
+}

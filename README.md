@@ -67,6 +67,20 @@ Or by hand, in ~/.gemini/settings.json:
 
 **Any other MCP client.** Add `https://mcp.hproxy.com/mcp` as a remote server (Streamable HTTP) with no authentication.
 
+**Apps that only start servers on your computer** (MCP over stdio). The npm package [`hproxy-mcp`](https://www.npmjs.com/package/hproxy-mcp) relays every message to the hosted server, so its tools are the same. With Node 18 or newer, in Claude Code:
+
+```bash
+claude mcp add hproxy -- npx -y hproxy-mcp
+```
+
+Or in an app's MCP settings file:
+
+```json
+{ "mcpServers": { "hproxy": { "command": "npx", "args": ["-y", "hproxy-mcp"] } } }
+```
+
+**Set up by your assistant.** `npx -y hproxy-mcp setup` prints the steps for every app above as plain text, so an assistant can follow them for you; `npx -y hproxy-mcp doctor` checks from your computer that everything answers.
+
 ## The tools
 
 | Tool | What it does | Arguments |

@@ -2,6 +2,17 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "description": "Free proxy list, live proxy checker and IP lookup for AI agents. No key, nothing to install.",
   "name": "com.hproxy/mcp",
+  "packages": [
+    {
+      "identifier": "hproxy-mcp",
+      "registryType": "npm",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      },
+      "version": "1.0.0"
+    }
+  ],
   "remotes": [
     {
       "type": "streamable-http",
@@ -13,6 +24,6 @@
     "url": "https://github.com/hproxy-com/hproxy-mcp"
   },
   "title": "HProxy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "websiteUrl": "https://hproxy.com/tools/ai"
 }
